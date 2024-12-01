@@ -1,0 +1,155 @@
+$Light-red: hsl(0, 100%, 67%);
+$Orangey-yellow: hsl(39, 100%, 56%);
+$Green-teal: hsl(166, 100%, 37%);
+$Cobalt-blue: hsl(234, 85%, 45%);
+$White: hsl(0, 0%, 100%);
+$Pale-blue: hsl(221, 100%, 96%);
+$Light-lavender: hsl(241, 100%, 89%);
+$Dark-gray-blue: hsl(224, 30%, 27%);
+$Violet-blue-circle: hsla(256, 72%, 46%, 1);
+$Persian-blue-circle: hsla(241, 72%, 46%) ;
+@mixin font($fontWeight:500,$fontSize:18px)
+{
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: $fontWeight;
+    font-size:$fontSize;
+
+}
+@mixin gradient($first, $last) { 
+    background: -webkit-linear-gradient($first, $last);
+    background: -moz-linear-gradient($first, $last);
+    background: -o-linear-gradient($first, $last);
+    background: linear-gradient($first, $last);  
+  }
+ 
+
+
+body{
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:$Pale-blue;
+}
+main{
+     display: flex;
+    box-shadow: 8px 16px 20px rgba($color: $Violet-blue-circle, $alpha: 0.125);
+     background-color:$White ;
+     border-radius: 20px;
+}
+.left-side{
+    @include gradient($Violet-blue-circle, $Cobalt-blue);
+    border-radius: 20px;
+    padding:20px 30px;
+    text-align: center;
+    max-width: 280px;
+     
+    
+ .result{
+    @include font($fontWeight:500,$fontSize:18px);
+    color:rgba($color:$Pale-blue, $alpha: 0.66);
+  }
+ .circle{
+    background-color:$Persian-blue-circle;
+    border-radius: 50%;
+    padding: 30px 10px ;
+    max-width:160px;
+    margin:auto;
+    .num{
+        @include font($fontWeight:600,$fontSize:70px );
+        color:rgba($color:$White, $alpha: 0.8);
+    }
+    .of-num{
+        @include font($fontWeight:500,$fontSize:15px );
+        color:rgba($color:$White, $alpha: 0.4);
+        
+    }
+   
+  }
+  .great{
+    color:rgba($color:$White, $alpha: 0.88);
+    @include font($fontWeight:600,$fontSize:20px );
+  }
+  .text{
+    @include font($fontWeight:400,$fontSize:15px );
+    color:rgba($color:$Pale-blue, $alpha: 0.66);
+    padding: 20px;
+
+  }
+
+}
+.right-side{
+    @include font($fontWeight:600,$fontSize:15px);
+    padding: 30px;
+    min-width:280px;
+    .summary{
+        @include font($fontWeight:700,$fontSize:18px);
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+    
+      div{
+        
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 0 15px;
+      } 
+    
+    .reaction
+    {
+         color: $Light-red;
+         background-color: rgba($color: $Light-red, $alpha: 0.06);
+    }
+    .memory
+    {
+       color: $Orangey-yellow; 
+       background-color: rgba($color: $Orangey-yellow, $alpha: 0.06);
+    }
+    .varbal{
+        color: $Green-teal; 
+       background-color: rgba($color: $Green-teal, $alpha: 0.06);
+    }
+    .visual{
+         color: $Cobalt-blue;
+         background-color: rgba($color: $Cobalt-blue, $alpha: 0.06);
+    }
+    .rate{
+        color: rgba($color: $Dark-gray-blue, $alpha: 0.6);
+        span{
+            color:$Dark-gray-blue;
+        }
+    }
+
+    button{
+        background-color: $Dark-gray-blue;
+        margin-top: 10px;
+        border-radius: 30px;
+        border: none;
+        min-width:100%;
+        padding: 15px ;
+        @include font($fontWeight:600,$fontSize:18px);
+        color:rgba($color:$White, $alpha: 0.88);
+
+    }
+}
+@media only screen and (max-width: 600px) {
+    main{
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: fit-content;
+    }
+    .left-side  {
+    //    width: 100%;
+       button{
+        min-width:100%;
+     }
+    }
+     .right-side {
+    //max-width: 100%;
+        
+     }
+     
+}
+
